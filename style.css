@@ -8,15 +8,15 @@
 /* Default Body Styling */
 body {
     font-family: 'Arial', sans-serif;
+    background-image: url('hk.jpg');
+    background-size: cover;  /* Make the image cover the entire background */
+    background-position: center;  /* Center the image */
+    background-attachment: fixed; /* Keep the background fixed during scroll */
 }
 
 /* Index Page (Main Page) Styling */
 body.index {
-    background-image: url('hk.jpg')
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 100vh;
+    height: 100vh; /* Ensure it takes the full height */
     display: flex;
     justify-content: center;
     align-items: center;
