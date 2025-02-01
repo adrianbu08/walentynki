@@ -30,18 +30,30 @@ document.addEventListener("DOMContentLoaded", function() {
             const timeLeft = targetDate - now;
 
             if (timeLeft <= 0) {
-                document.body.innerHTML = `<div class="valentine-screen">Happy Valentine's Day! ❤️</div>`;
+                // Check if it's February 14th
+                if (now.getMonth() === 1 && now.getDate() === 14) {
+                    window.location.href = "walentynki.html"; // Redirect to the walentynki.html page
+                } else {
+                    document.body.innerHTML = `<div class="valentine-screen">Happy Valentine's Day! ❤️</div>`;
+                }
             } else {
                 const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                countdownElement.innerHTML = `Walentynki za: ${dni}d ${godzin}h ${minut}m ${sekund}s`;
+                countdownElement.innerHTML = `Walentynki za: ${days}d ${hours}h ${minutes}m ${seconds}s`;
             }
         }
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
+    }
+
+    // Check if today's date is February 14th
+    const now = new Date();
+    if (now.getMonth() === 1 && now.getDate() === 14) {
+        // Redirect to the walentynki.html page
+        window.location.href = "walentynki.html";
     }
 });
