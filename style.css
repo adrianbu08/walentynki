@@ -1,32 +1,72 @@
-document.getElementById("yesButton").addEventListener("click", function() {
-    document.getElementById("countdownContainer").classList.remove("hidden");
-    startCountdown();
-});
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #fff0f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-document.getElementById("noButton").addEventListener("click", function() {
-    window.location.href = "error.html";
-});
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-function startCountdown() {
-    const targetDate = new Date(new Date().getFullYear(), 1, 14); // February 14
-    const countdownElement = document.getElementById("countdown");
+h1 {
+    color: #d63384;
+}
 
-    function updateCountdown() {
-        const now = new Date();
-        const timeLeft = targetDate - now;
+.buttons {
+    margin-top: 20px;
+}
 
-        if (timeLeft <= 0) {
-            document.body.innerHTML = `<div class="valentine-screen">Happy Valentine's Day! ❤️</div>`;
-        } else {
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-            countdownElement.innerHTML = `Countdown to Valentine's Day: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-    }
+.yes {
+    background-color: #28a745;
+    color: white;
+}
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+.no {
+    background-color: #dc3545;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.valentine-screen {
+    background-color: pink;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-screen {
+    background-color: black;
+    color: red;
+    text-align: center;
+    font-size: 30px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
