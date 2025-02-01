@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         noButton.addEventListener("click", function() {
             console.log("No button clicked");
+            // This will redirect to error.html
             window.location.href = "error.html";
         });
     } else {
