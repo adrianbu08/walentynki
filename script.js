@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Show the "Poprawna odpowiedź" message
             countdownContainer.classList.remove("hidden");
-            messageElement.textContent = "Poprawna odpowiedź :)";  // Set the message
             countdownContainer.appendChild(messageElement);  // Append the message
 
             // Start the countdown after the message is shown
