@@ -121,8 +121,8 @@ button {
 }
 
 .error-screen {
-    background-color: black;
-    color: red;
+    background-color: blue;  /* Set background to blue */
+    color: white;  /* Set text color to white */
     text-align: center;
     font-size: 30px;
     height: 100vh;
@@ -131,4 +131,5 @@ button {
     justify-content: center;
     align-items: center;
 }
+
 
