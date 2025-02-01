@@ -1,70 +1,32 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+document.getElementById("yesButton").addEventListener("click", function() {
+    document.getElementById("countdownContainer").classList.remove("hidden");
+    startCountdown();
+});
 
-html {
-  font-size: 62.5%;
-}
+document.getElementById("noButton").addEventListener("click", function() {
+    window.location.href = "error.html";
+});
 
-body {
-  background-color: #fff0f6;
-  font-family: "Protest Riot", sans-serif;
-}
+function startCountdown() {
+    const targetDate = new Date(new Date().getFullYear(), 1, 14); // February 14
+    const countdownElement = document.getElementById("countdown");
 
-.container {
-  height: 100vh;
-  margin: 0 auto;
+    function updateCountdown() {
+        const now = new Date();
+        const timeLeft = targetDate - now;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+        if (timeLeft <= 0) {
+            document.body.innerHTML = `<div class="valentine-screen">Happy Valentine's Day! ❤️</div>`;
+        } else {
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-.cat-img {
-  width: 30rem;
-  height: 30rem;
-  margin-bottom: 2rem;
-}
+            countdownElement.innerHTML = `Countdown to Valentine's Day: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+    }
 
-.title {
-  font-size: 3.6rem;
-  color: #f53699;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-
-  gap: 1rem;
-}
-
-.btn {
-  padding: 1.5rem 2.5rem;
-  border: none;
-  border-radius: 4px;
-
-  color: white;
-  font-size: 1.6rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.btn--yes {
-  background-color: #40c057;
-}
-
-.btn--no {
-  background-color: #f03e3e;
-}
-
-.hidden {
-  display: none;
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 }
