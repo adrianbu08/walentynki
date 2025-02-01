@@ -1,20 +1,28 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Script is loaded!");
 
-    document.getElementById("yesButton").addEventListener("click", function() {
-        console.log("Yes button clicked");
-        document.getElementById("countdownContainer").classList.remove("hidden");
-        startCountdown();
-    });
+    const yesButton = document.getElementById("yesButton");
+    const noButton = document.getElementById("noButton");
+    const countdownContainer = document.getElementById("countdownContainer");
+    const countdownElement = document.getElementById("countdown");
 
-    document.getElementById("noButton").addEventListener("click", function() {
-        console.log("No button clicked");
-        window.location.href = "error.html";
-    });
+    if (yesButton && noButton) {
+        yesButton.addEventListener("click", function() {
+            console.log("Yes button clicked");
+            countdownContainer.classList.remove("hidden");
+            startCountdown();
+        });
+
+        noButton.addEventListener("click", function() {
+            console.log("No button clicked");
+            window.location.href = "error.html";
+        });
+    } else {
+        console.error("Buttons not found! Check your HTML.");
+    }
 
     function startCountdown() {
         const targetDate = new Date(new Date().getFullYear(), 1, 14); // February 14
-        const countdownElement = document.getElementById("countdown");
 
         function updateCountdown() {
             const now = new Date();
