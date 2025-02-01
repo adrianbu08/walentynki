@@ -5,16 +5,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const noButton = document.getElementById("noButton");
     const countdownContainer = document.getElementById("countdownContainer");
     const countdownElement = document.getElementById("countdown");
-    const messageContainer = document.getElementById("countdownContainer"); // Referring to message container
+    const messageElement = document.createElement("p");  // Create a message element dynamically
 
     if (yesButton && noButton) {
         yesButton.addEventListener("click", function() {
             console.log("Yes button clicked");
 
             // Show the "Poprawna odpowiedź" message
-            messageContainer.classList.remove("hidden");
-            
-            // Start the countdown after showing the message
+            countdownContainer.classList.remove("hidden");
+            messageElement.textContent = "Poprawna odpowiedź :)";  // Set the message
+            countdownContainer.appendChild(messageElement);  // Append the message
+
+            // Start the countdown after the message is shown
             startCountdown();
         });
 
