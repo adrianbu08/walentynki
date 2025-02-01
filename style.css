@@ -1,27 +1,100 @@
-/* Reset styles for error page */
-html, body {
-    height: 100%;
+/* Global Reset */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Default Body Styling */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #fff0f5; /* Default background */
+    font-family: 'Arial', sans-serif;
 }
 
-.error-screen {
-    background-color: blue; /* Set background to blue */
-    color: white;
-    font-size: 30px;
-    text-align: center;
+/* Index Page (Main Page) Styling */
+body.index {
+    background-image: url('hk.jpg')
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Make sure this takes full viewport height */
 }
 
+.container {
+    background: rgba(255, 255, 255, 0.8); /* Slight white background for readability */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Title Style */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Countdown Text Style */
+p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 50px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* Button Styles */
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+/* "Yes" Button */
+button.yes {
+    background-color: #ff69b4; /* Pink color */
+    color: white;
+    border: 2px solid #ff69b4; /* Border in the same color */
+}
+
+/* "No" Button */
+button.no {
+    background-color: #ff4c4c; /* Redish Pink */
+    color: white;
+    border: 2px solid #ff4c4c;
+}
+
+/* Button Hover Effect */
+button:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Focus Effect */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #ff69b4; /* Focus ring */
+}
+
+/* Hidden Class for Countdown Container */
+.hidden {
+    display: none;
+}
+
+/* Countdown Container Styling */
+#countdownContainer {
+    margin-top: 20px;
+}
+
+/* Valentine's Day Screen Style */
 .valentine-screen {
     background-color: pink;
     color: white;
@@ -33,13 +106,76 @@ body {
     align-items: center;
 }
 
-/* Style for the container on the main page */
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
+/* Error Page Styling */
+body.error {
+    background-color: blue;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.error-screen {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.error-screen p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Fade In Keyframe for Smooth Transitions */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heart Animation (for Valentine's Day) */
+.hearts {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: #e63946;
+    clip-path: polygon(50% 0%, 100% 35%, 100% 100%, 50% 75%, 0% 100%, 0% 35%);
+    transform: scale(0);
+    animation: heartAnimation 1s ease-in-out infinite;
+}
+
+.heart:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.heart:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes heartAnimation {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(0);
+    }
 }
