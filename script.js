@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                countdownElement.innerHTML = `Countdown to Valentine's Day: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                countdownElement.innerHTML = `Walentynki za: ${dni}d ${godzin}h ${minut}m ${sekund}s`;
             }
         }
 
